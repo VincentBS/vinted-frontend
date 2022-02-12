@@ -1,1 +1,11 @@
 /* Other rules */
+.card-home {
+  border: solid 2px black;
+  width: 235px;
+  padding: 0 6px 16px;
+  cursor: pointer;
+}
+
+/* .card-home > img {
+  height: 150;
+} */
