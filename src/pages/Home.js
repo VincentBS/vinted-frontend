@@ -8,12 +8,16 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
-      );
-      //   console.log(response.data);
-      setData(response.data);
-      setIsLoading(false);
+      try {
+        const response = await axios.get(
+          "https://lereacteur-vinted-api.herokuapp.com/offers"
+        );
+        //   console.log(response.data);
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
     };
     fetchData();
   }, []);
@@ -31,7 +35,7 @@ const Home = () => {
                 style={{ height: 150 }}
                 //   --> à enlever
                 src={offer.product_image.secure_url}
-                alt=""
+                alt="product"
               />
             </div>
           </Link>

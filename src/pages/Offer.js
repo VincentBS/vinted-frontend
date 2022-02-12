@@ -11,12 +11,16 @@ const Offer = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
-      );
-      //   console.log(response.data);
-      setData(response.data);
-      setIsLoading(false);
+      try {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        );
+        //   console.log(response.data);
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
     };
     fetchData();
   }, [id]);
@@ -24,7 +28,7 @@ const Offer = () => {
   return isLoading ? (
     <div> Downloading... </div>
   ) : (
-    <div>
+    <div id="offer">
       <h2> {data.product_name} </h2>
       <div>
         {/* Tableau product_details */}
