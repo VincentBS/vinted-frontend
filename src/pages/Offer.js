@@ -5,7 +5,6 @@ import axios from "axios";
 const Offer = () => {
   const { id } = useParams();
   //   console.log(id);
-
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,7 +14,7 @@ const Offer = () => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
-        //   console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -28,22 +27,44 @@ const Offer = () => {
   return isLoading ? (
     <div> Downloading... </div>
   ) : (
-    <div id="offer">
-      <h2> {data.product_name} </h2>
-      <div>
-        {/* Tableau product_details */}
-        {data.product_details.map((item, index) => {
-          const keys = Object.keys(item);
-          const values = Object.values(item);
-          return (
-            <div key={index}>
-              <span> {keys[0]} </span>
-              <span> {values[0]} </span>
+    <body id="offer">
+      <div className="container">
+        <div className="offer">
+          <div className="offer-image">
+            <img src={data.product_image.secure_url} alt="product" />
+          </div>
+          <div className="product">
+            <div className="product-price">{data.product_price} €</div>
+            <div className="product-details">
+              {/* Tableau product_details */}
+              {data.product_details.map((item, index) => {
+                const keys = Object.keys(item);
+                const values = Object.values(item);
+                return (
+                  <div key={index}>
+                    <span> {keys[0]} </span>
+                    <span> {values[0]} </span>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
+            <div className="product-name">{data.product_name}</div>
+            <div className="product-description">
+              {data.product_description}
+              <div className="avatar-owner">
+                <img src={data.owner.account.avatar.secure_url} alt="avatar" />
+              </div>
+              <div className="owner">
+                <span>{data.owner.account.username}</span>
+              </div>
+              {/* <Link to="/payment"> */}
+              <input className="buy" type="submit" value="Acheter" />
+              {/* </Link> */}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </body>
   );
 };
 

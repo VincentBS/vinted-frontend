@@ -1,0 +1,20 @@
+/* CSS RULES */
+
+body#offer {
+  background-color: #eaedee;
+  height: 100vh;
+}
+
+.container {
+  max-width: 1280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.offer {
+  display: flex;
+  margin-top: 40px;
+}

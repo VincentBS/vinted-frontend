@@ -1,10 +1,25 @@
-const Header = () => {
+import { Link, useNavigate } from "react-router-dom";
+
+const Header = ({ token, setUser }) => {
+  const navigate = useNavigate();
   return (
     <div>
-      <img src="src/assets/img/logo-vinted.png" alt="logo vinted" />
-      <button>S'inscrire</button>
-      <button>Se connecter</button>
-      <button>Vends tes articles</button>
+      {token ? (
+        <button
+          onClick={() => {
+            setUser(null);
+            navigate("/");
+          }}
+        >
+          Se déconnecter
+        </button>
+      ) : (
+        <div className="header">
+          <Link to="/signup">S'inscrire</Link>
+          <Link to="/login">Se connecter</Link>
+        </div>
+      )}
+      <Link to="/publish">Vends tes articles</Link>
     </div>
   );
 };

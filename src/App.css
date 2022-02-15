@@ -1,4 +1,11 @@
 /* Other rules */
+
+.header {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .card-home {
   border: solid 2px black;
   width: 235px;
@@ -6,6 +13,40 @@
   cursor: pointer;
 }
 
-/* .card-home > img {
-  height: 150;
-} */
+.offer {
+  display: flex;
+  width: 1400;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* PAGINATION HOME */
+
+.offer .pagination-home {
+  max-width: 1280px;
+  padding: 0;
+  margin: 0 30px;
+}
+
+.offer .pagination-home .pagination {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+  border: 1px solid #f4f4f4;
+  border-radius: 5px;
+}
+
+.offer .pagination-home .pagination li {
+  width: 48px;
+  padding: 16px 0;
+  margin: 0;
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.offer .pagination-home .pagination li a {
+  color: #2aaeb7;
+}
