@@ -41,10 +41,8 @@ const Publish = ({ token }) => {
             },
           }
         );
-        //   console.log(response.data);
-        if (response.data._id) {
-          navigate(`/offer/${response.data._id}`);
-        }
+        console.log(response.data);
+        navigate(`/offer/${response.data._id}`);
       } else {
         setErrorMessage("Title, price and photo are required");
       }

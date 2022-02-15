@@ -50,3 +50,30 @@
 .offer .pagination-home .pagination li a {
   color: #2aaeb7;
 }
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: white;
+}
+
+.logo {
+  width: 83px;
+  height: 44px;
+  margin-right: 20px;
+}
+
+.searchButton {
+  width: 300px;
+  border-radius: 5px;
+  border: 2px solid rgb(245, 243, 243);
+  height: 40px;
+  background-color: rgb(245, 243, 243);
+}
+.AllButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
