@@ -33,7 +33,7 @@ function App() {
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/publish" element={<Publish token={token} />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment" element={<Payment token={token} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

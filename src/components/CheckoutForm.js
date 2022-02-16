@@ -19,7 +19,7 @@ const CheckoutForm = ({ title, price }) => {
       // Création d'un token via l'API Stripe
       // On envoie les données CB dans la requête
       const stripeResponse = await stripe.createToken(cardElements, {
-        name: "Vincent",
+        name: "Test",
       });
       console.log("Stripe Response ===> ", stripeResponse.token.id);
       const stripeToken = stripeResponse.token.id;
@@ -64,8 +64,8 @@ const CheckoutForm = ({ title, price }) => {
             <div className="content-bottom-price">{totalPrice} €</div>
           </div>
           <div className="content-text">
-            Il ne vous reste plus qu'une étape pour vous offrir
-            <span className="texteBold">{title}</span> . Vous allez payer
+            Il ne vous reste plus qu'une étape pour vous offrir{" "}
+            <span className="texteBold">{title}</span>. Vous allez payer{" "}
             <span className="texteBold">{totalPrice}</span> € (frais de
             protection et frais de port inclus).
           </div>
@@ -73,6 +73,7 @@ const CheckoutForm = ({ title, price }) => {
           <CardElement className="content-CB"></CardElement>
           <div className="buttonPay">
             <button type="submit">Pay</button>
+            <span>{completed}</span>
           </div>
         </div>
       </form>

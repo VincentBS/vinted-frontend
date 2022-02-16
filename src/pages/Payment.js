@@ -9,9 +9,13 @@ const Payment = ({ token }) => {
 
   const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
   return token ? (
-    <Elements stripe={stripePromise}>
-      <CheckoutForm title={title} price={price} />
-    </Elements>
+    <div>
+      <h4> {title} </h4>
+      <span> {price} €</span>
+      <Elements stripe={stripePromise}>
+        <CheckoutForm title={title} price={price} />
+      </Elements>
+    </div>
   ) : (
     <Navigate to="/login"></Navigate>
   );
